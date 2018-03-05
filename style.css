@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0; }
+  *, *::before, *::after {
+    box-sizing: inherit; }
+
+a {
+  color: #02f694;
+  text-decoration: none; }
+  a:hover {
+    color: #fff; }
+
+:root {
+  --color-foreground: #02f694;
+  --color-background: #311e6d;
+  --color-white: #fff;
+  font-family: 'Barlow', sans-serif;
+  color: #02f694;
+  background-color: #311e6d;
+  box-sizing: border-box; }
+
+.no-bullet {
+  list-style-type: none; }
+
+.workspace {
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .workspace > .main {
+    -ms-flex-positive: 1;
+    flex-grow: 1; }
+
+.buyTicket {
+  margin-left: auto;
+  fill: #02f694; }
+  .buyTicket:hover .overlay {
+    fill-opacity: 0.2; }
+  .buyTicket:active .overlay {
+    fill-opacity: 1; }
+  .buyTicket:active .dash,
+  .buyTicket:active .text {
+    fill: #311e6d; }
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 30px;
+  font-size: 24px; }
+  .nav > * {
+    z-index: 1; }
+  .nav .callForLink {
+    padding: 4px 20px 6px; }
+    .nav .callForLink + .callForLink {
+      border-left: 2px solid #594a9d; }
+
+.burger {
+  cursor: pointer;
+  margin-right: 50px; }
+
+.burgerNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: none;
+  padding-top: 140px;
+  -ms-grid-column-align: center;
+  justify-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  grid-template: 100px auto 180px / 1fr 3px 1fr; }
+  #toggle-burger:checked ~ .nav > .burgerNav {
+    display: -ms-grid;
+    display: grid; }
+
+.burgerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.burgerNav__logo {
+  grid-column: 1 / -1;
+  -ms-flex-item-align: start;
+  -ms-grid-row-align: start;
+  align-self: start; }
+  .burgerNav__logo svg {
+    display: block;
+    width: 90px;
+    height: 50px;
+    pointer-events: none; }
+
+.burgerDivider {
+  border: none;
+  width: 100%;
+  height: 100%;
+  background-color: #594a9d;
+  border-radius: 1rem; }
+
+.navLinks,
+.navSponsors {
+  padding: 3vh 5vw; }
+
+.navSponsors {
+  text-align: center;
+  max-height: 100%;
+  overflow: auto; }
+
+.navSponsors__title {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 3px 3px #311e6d; }
+
+.navLinks {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content; }
+  .navLinks > li {
+    margin-bottom: 5vh; }
+
+.navLink {
+  font-size: 48px;
+  color: #c2b9ee;
+  text-transform: uppercase; }
+  .navLink.is-current {
+    color: #02f694;
+    font-weight: 600; }
+
+.fbLink {
+  grid-column: 1 / -1;
+  width: 36px;
+  height: 36px; }
+  .fbLink:hover {
+    color: #c2b9ee; }
+  .fbLink svg {
+    display: block;
+    fill: currentColor; }
+
+#toggle-burger:checked ~ .main,
+#toggle-burger:checked ~ .footer {
+  filter: blur(20px); }
+
+/*# sourceMappingURL=style.css.map */

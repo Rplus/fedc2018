@@ -1,0 +1,41 @@
+//- include _burgerNav
+div.burgerNav(for="toggle-burger")
+  label.burgerOverlay(for="toggle-burger")
+  .burgerNav__logo
+    include ../static/logo_index.svg
+
+  ul.navLinks.no-bullet
+    li
+      a.navLink.is-current(href="###") home
+    li
+      a.navLink(href="###") agenda
+    li
+      a.navLink(href="###") speakers
+
+  hr.burgerDivider
+
+  .navSponsors
+    h3.navSponsors__title our sponsors
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+    img.sponsor(src="./static/icon/icon_sponsor_appier.png")
+
+  a.fbLink(href="###")
+    include ../static/icon/icon_fb.svg
+
+label.burger(for="toggle-burger")
+  include ../static/icon/icon_menu.svg

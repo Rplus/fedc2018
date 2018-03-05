@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title FEDC 2018 - Front-End x Design Conference 2018
+    link(rel="stylesheet", href="style.css")
+    script(defer src="script.js")
+    meta(charSet="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    //- link(href="/static/reset.css" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Barlow:400,500,600,700" rel="stylesheet")
+body
+  .workspace
+    input#toggle-burger(type="checkbox" hidden checked)
+    include pug_comp/_nav
+    include pug_comp/_main
+    include pug_comp/_footer
