@@ -163,7 +163,7 @@ body {
   @media (min-width: 650px) {
     padding-left: unset;
     padding-right: unset;
-    grid-template: 100px auto 18vh / 1fr 3px 1fr;
+    grid-template: 100px auto 18vh / 50vw 3px 50vw;
     font-size: 48px;
 
     #toggle-burger:checked ~ .nav > & {
