@@ -10,6 +10,9 @@ a {
   a:hover {
     color: #fff; }
 
+svg {
+  display: block; }
+
 :root {
   --color-foreground: #02f694;
   --color-background: #311e6d;
@@ -18,6 +21,14 @@ a {
   color: #02f694;
   background-color: #311e6d;
   box-sizing: border-box; }
+  :root *::-webkit-scrollbar {
+    width: 10px; }
+  :root *::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: .1em;
+    background-clip: padding-box;
+    border: 2px solid transparent; }
 
 .no-bullet {
   list-style-type: none; }
@@ -42,6 +53,10 @@ a {
   .buyTicket:active .dash,
   .buyTicket:active .text {
     fill: #311e6d; }
+  @media (max-width: 650px) {
+    .buyTicket svg {
+      width: 130px;
+      height: 40px; } }
 
 .nav {
   position: fixed;
@@ -58,46 +73,73 @@ a {
   .nav > * {
     z-index: 1; }
   .nav .callForLink {
+    display: none;
     padding: 4px 20px 6px; }
     .nav .callForLink + .callForLink {
       border-left: 2px solid #594a9d; }
+    @media (min-width: 650px) {
+      .nav .callForLink {
+        display: block; } }
 
 .burger {
   cursor: pointer;
   margin-right: 50px; }
+  @media (max-width: 650px) {
+    .burger svg {
+      width: 30px;
+      height: 30px; } }
 
 .burgerNav {
   position: fixed;
-  top: 0;
+  top: 140px;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
   display: none;
-  padding-top: 140px;
+  padding-left: 8.5vw;
+  padding-right: 8.5vw;
   -ms-grid-column-align: center;
   justify-items: center;
   -ms-flex-align: center;
   align-items: center;
-  grid-template: 100px auto 180px / 1fr 3px 1fr; }
+  font-size: 30px;
+  overflow: auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -140px rgba(0, 0, 0, 0.3); }
   #toggle-burger:checked ~ .nav > .burgerNav {
-    display: -ms-grid;
-    display: grid; }
+    display: block; }
+  @media (min-width: 650px) {
+    .burgerNav {
+      padding-left: unset;
+      padding-right: unset;
+      grid-template: 100px auto 18vh / 1fr 3px 1fr;
+      font-size: 48px; }
+      #toggle-burger:checked ~ .nav > .burgerNav {
+        display: -ms-grid;
+        display: grid; }
+      .burgerNav > * {
+        max-height: 100%;
+        overflow: auto; } }
 
 .burgerOverlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-color: rgba(0, 0, 0, 0.3); }
+  display: none; }
 
 .burgerNav__logo {
   grid-column: 1 / -1;
   -ms-flex-item-align: start;
   -ms-grid-row-align: start;
   align-self: start; }
+  @media (max-width: 650px) {
+    .burgerNav__logo {
+      display: none; } }
   .burgerNav__logo svg {
     display: block;
     width: 90px;
@@ -107,37 +149,52 @@ a {
 .burgerDivider {
   border: none;
   width: 100%;
-  height: 100%;
+  height: 3px;
   background-color: #594a9d;
   border-radius: 1rem; }
-
-.navLinks,
-.navSponsors {
-  padding: 3vh 5vw; }
+  @media (min-width: 650px) {
+    .burgerDivider {
+      height: 100%; } }
 
 .navSponsors {
   text-align: center;
-  max-height: 100%;
-  overflow: auto; }
+  padding-top: 40px;
+  padding-bottom: 10vh; }
+
+@media (min-width: 650px) {
+  .navLinks,
+  .navSponsors {
+    padding: 3vh 9vw; } }
 
 .navSponsors__title {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  font-size: .5em;
   margin-bottom: 40px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-shadow: 0 3px 3px #311e6d; }
+  text-shadow: 0 3px 3px #311e6d;
+  display: none; }
+  @media (min-width: 650px) {
+    .navSponsors__title {
+      display: block; } }
 
 .navLinks {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content; }
+  letter-spacing: 2.5px; }
   .navLinks > li {
-    margin-bottom: 5vh; }
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  @media (min-width: 650px) {
+    .navLinks {
+      width: -webkit-min-content;
+      width: -moz-min-content;
+      width: min-content;
+      letter-spacing: 4px; }
+      .navLinks > li {
+        margin-bottom: 5vh; } }
 
 .navLink {
-  font-size: 48px;
   color: #c2b9ee;
   text-transform: uppercase; }
   .navLink.is-current {
@@ -145,9 +202,17 @@ a {
     font-weight: 600; }
 
 .fbLink {
+  display: block;
   grid-column: 1 / -1;
   width: 36px;
-  height: 36px; }
+  height: 36px;
+  margin: 80px auto; }
+  @media (min-width: 650px) {
+    .fbLink {
+      -ms-flex-order: 1;
+      order: 1;
+      margin-top: unset;
+      margin-bottom: 3vh; } }
   .fbLink:hover {
     color: #c2b9ee; }
   .fbLink svg {

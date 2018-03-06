@@ -24,6 +24,10 @@ a {
   }
 }
 
+svg {
+  display: block;
+}
+
 :root {
   --color-foreground: $color-foreground;
   --color-background: $color-background;
@@ -33,6 +37,18 @@ a {
   color: $color-foreground;
   background-color: $color-background;
   box-sizing: border-box;
+
+  *::-webkit-scrollbar {
+      width: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(#fff, .2);
+    border-radius: 1rem;
+    padding: .1em;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
 }
 
 body {
@@ -72,6 +88,13 @@ body {
       fill: $color-background;
     }
   }
+
+  @media (max-width: 650px) {
+    svg {
+      width: 130px;
+      height: 40px;
+    }
+  }
 }
 
 .nav {
@@ -90,11 +113,15 @@ body {
   }
 
   .callForLink {
+    display: none;
     padding: 4px 20px 6px;
 
     & + .callForLink {
-      // box-shadow: -2px 0 $color-border;
       border-left: 2px solid $color-border;
+    }
+
+    @media (min-width: 650px) {
+      display: block;
     }
   }
 }
@@ -102,39 +129,72 @@ body {
 .burger {
   cursor: pointer;
   margin-right: 50px;
+
+  @media (max-width: 650px) {
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
 
 .burgerNav {
   position: fixed;
-  top: 0;
+  top: 140px;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
   display: none;
-  padding-top: 140px;
+  padding-left: 8.5vw;
+  padding-right: 8.5vw;
   justify-items: center;
   align-items: center;
-  grid-template: 100px auto 180px / 1fr 3px 1fr;
+  font-size: 30px;
+  overflow: auto;
+  text-align: center;
+  background-color: rgba(#000, .3);
+  box-shadow: 0 -140px rgba(#000, .3);
 
   #toggle-burger:checked ~ .nav > & {
-    display: grid;
+    display: block;
   }
+
+  @media (min-width: 650px) {
+    padding-left: unset;
+    padding-right: unset;
+    grid-template: 100px auto 18vh / 1fr 3px 1fr;
+    font-size: 48px;
+
+    #toggle-burger:checked ~ .nav > & {
+      display: grid;
+    }
+
+    > * {
+      max-height: 100%;
+      overflow: auto;
+    }
+  }
+
 }
 
 .burgerOverlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-color: rgba(#000, .3);
+  display: none;
 }
 
 .burgerNav__logo {
   grid-column: 1 / -1;
   align-self: start;
+
+  @media (max-width: 650px) {
+    display: none;
+  }
 
   svg {
     display: block;
@@ -147,42 +207,62 @@ body {
 .burgerDivider {
   border: none;
   width: 100%;
-  height: 100%;
+  height: 3px;
   background-color: $color-border;
   border-radius: 1rem;
+
+  @media (min-width: 650px) {
+    height: 100%;
+  }
+}
+
+.navSponsors {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 10vh;
 }
 
 .navLinks,
 .navSponsors {
-  padding: 3vh 5vw;
-}
-
-
-.navSponsors {
-  text-align: center;
-  max-height: 100%;
-  overflow: auto;
+  @media (min-width: 650px) {
+    padding: 3vh 9vw;
+  }
 }
 
 .navSponsors__title {
   position: sticky;
   top: 0;
+  font-size: .5em;
   margin-bottom: 40px;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 0 3px 3px $color-background;
+  display: none;
+
+  @media (min-width: 650px) {
+    display: block;
+  }
 }
 
 .navLinks {
-  width: min-content;
+  letter-spacing: 2.5px;
 
   > li {
-    margin-bottom: 5vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: 650px) {
+    width: min-content;
+    letter-spacing: 4px;
+
+    > li {
+      margin-bottom: 5vh;
+    }
   }
 }
 
 .navLink {
-  font-size: 48px;
   color: $color-3;
   text-transform: uppercase;
 
@@ -193,9 +273,17 @@ body {
 }
 
 .fbLink {
+  display: block;
   grid-column: 1 / -1;
   width: 36px;
   height: 36px;
+  margin: 80px auto;
+
+  @media (min-width: 650px) {
+    order: 1;
+    margin-top: unset;
+    margin-bottom: 3vh;
+  }
 
   &:hover {
     color: $color-3;
